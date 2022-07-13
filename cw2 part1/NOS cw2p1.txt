@@ -1,0 +1,390 @@
+poonam@DESKTOP-9S1TGQJ:~$ cat 20049412cw2p1
+Script started on 2022-03-20 21:06:26+05:45 [TERM="xterm-256color" TTY="/dev/tty1" COLUMNS="104" LINES="49"]
+poonam@DESKTOP-9S1TGQJ:~$ export PS1="\`pwd\` $ "
+/home/poonam $ mkdir -p IPL/{"Mumbai Indians",KKR,Punjab,"Rajsthan Royals",RCB}
+/home/poonam $ tree IPL
+IPL
+|-- KKR
+|-- Mumbai\ Indians
+|-- Punjab
+|-- RCB
+`-- Rajsthan\ Royals
+
+5 directories, 0 files
+/home/poonam $ cd IPL/KKR
+/home/poonam/IPL/KKR $ pwd
+/home/poonam/IPL/KKR
+/home/poonam/IPL/KKR $ touch File1 File2
+/home/poonam/IPL/KKR $ cd ..
+/home/poonam/IPL $ rm -ri KKR
+rm: descend into directory 'KKR'? y
+rm: remove regular empty file 'KKR/File1'? y
+rm: remove regular empty file 'KKR/File2'? y
+rm: remove directory 'KKR'? n
+/home/poonam/IPL $ cd KKR
+/home/poonam/IPL/KKR $ ls -a
+.  ..
+/home/poonam/IPL/KKR $ cd ..
+/home/poonam/IPL $ echo -e "Hello! I am big fan of IPL.\n14<(2+2)"
+Hello! I am big fan of IPL.
+14<(2+2)
+/home/poonam/IPL $ pwd
+/home/poonam/IPL
+/home/poonam/IPL $ cd KKR
+/home/poonam/IPL/KKR $ pwd
+/home/poonam/IPL/KKR
+/home/poonam/IPL/KKR $ pwd; cd; pwd
+/home/poonam/IPL/KKR
+/home/poonam
+/home/poonam $ cd IPL/KKR
+/home/poonam/IPL $ pwd; cd ..; pwd; cd ..; pwd
+/home/poonam/IPL
+/home/poonam
+/home
+/home $ cd poonam/IPL/KKR
+/home/poonam/IPL/KKR $ pwd; cd ..; pwd; cd ..; pwd
+/home/poonam/IPL/KKR
+/home/poonam/IPL
+/home/poonam
+/home/poonam $ cd; pwd
+/home/poonam
+/home/poonam $ ls
+20049412cw2p1  IPL
+/home/poonam $ ls -al
+total 12
+drwxr-xr-x 1 poonam poonam 4096 Mar 20 21:10 .
+drwxr-xr-x 1 root   root   4096 Dec 10 11:13 ..
+-rw------- 1 poonam poonam 3467 Mar 19 20:03 .bash_history
+-rw-r--r-- 1 poonam poonam  220 Dec 10 11:13 .bash_logout
+-rw-r--r-- 1 poonam poonam 3667 Mar 11 18:20 .bashrc
+drwxr-xr-x 1 poonam poonam 4096 Mar  7 10:40 .local
+-rw-r--r-- 1 poonam poonam  807 Dec 10 11:13 .profile
+-rw-r--r-- 1 poonam poonam    0 Mar 20 21:06 20049412cw2p1
+drwxr-xr-x 1 poonam poonam 4096 Mar 20 21:10 IPL
+/home/poonam $ cd; pwd; cd cw2; pwd
+/home/poonam
+bash: cd: cw2: No such file or directory
+/home/poonam
+/home/poonam $ ls -R
+.:
+20049412cw2p1  IPL
+
+./IPL:
+ KKR  'Mumbai Indians'   Punjab   RCB  'Rajsthan Royals'
+
+./IPL/KKR:
+
+'./IPL/Mumbai Indians':
+
+./IPL/Punjab:
+
+./IPL/RCB:
+
+'./IPL/Rajsthan Royals':
+/home/poonam $ cd IPL/RCB
+/home/poonam/IPL/RCB $ cat>testX
+aaabb Aaaaa
+AAAAA
+bbbcc Bbbbb
+BBBBB
+ff-ff Ccccc CCCCC
+cccdd Ddddd
+DDDDD
+^Z
+[1]+  Stopped                 cat > testX
+/home/poonam/IPL/RCB $ cat>testY
+aaabb Aaaaa
+AAAAA
+bbbcc Bbbbb
+BBBBB
+ff-cc Ccccc CCCCC
+cccdd Ddddd
+DDDDD
+^Z
+[2]+  Stopped                 cat > testY
+/home/poonam/IPL/RCB $ cat>testZ
+aaabb Aaaaa
+AAAAA
+bbbcc Bbbbb
+BBBBB
+ff-ff Ccccc CCCCC
+cccdd Ddddd
+DDDDD
+^Z
+[3]+  Stopped                 cat > testZ
+/home/poonam/IPL/RCB $ cat testX
+aaabb Aaaaa
+AAAAA
+bbbcc Bbbbb
+BBBBB
+ff-ff Ccccc CCCCC
+cccdd Ddddd
+DDDDD
+/home/poonam/IPL/RCB $ cat testY
+aaabb Aaaaa
+AAAAA
+bbbcc Bbbbb
+BBBBB
+ff-cc Ccccc CCCCC
+cccdd Ddddd
+DDDDD
+/home/poonam/IPL/RCB $ cat testZ
+aaabb Aaaaa
+AAAAA
+bbbcc Bbbbb
+BBBBB
+ff-ff Ccccc CCCCC
+cccdd Ddddd
+DDDDD
+/home/poonam/IPL/RCB $ cp testX testY testZ ../"Rajsthan Royals"
+/home/poonam/IPL/RCB $ cat testX testY testZ
+aaabb Aaaaa
+AAAAA
+bbbcc Bbbbb
+BBBBB
+ff-ff Ccccc CCCCC
+cccdd Ddddd
+DDDDD
+aaabb Aaaaa
+AAAAA
+bbbcc Bbbbb
+BBBBB
+ff-cc Ccccc CCCCC
+cccdd Ddddd
+DDDDD
+aaabb Aaaaa
+AAAAA
+bbbcc Bbbbb
+BBBBB
+ff-ff Ccccc CCCCC
+cccdd Ddddd
+DDDDD
+/home/poonam/IPL/RCB $ cat testX testY testZ>testResult
+/home/poonam/IPL/RCB $ cat testResult
+aaabb Aaaaa
+AAAAA
+bbbcc Bbbbb
+BBBBB
+ff-ff Ccccc CCCCC
+cccdd Ddddd
+DDDDD
+aaabb Aaaaa
+AAAAA
+bbbcc Bbbbb
+BBBBB
+ff-cc Ccccc CCCCC
+cccdd Ddddd
+DDDDD
+aaabb Aaaaa
+AAAAA
+bbbcc Bbbbb
+BBBBB
+ff-ff Ccccc CCCCC
+cccdd Ddddd
+DDDDD
+/home/poonam/IPL/RCB $ cat test[XYZ]
+aaabb Aaaaa
+AAAAA
+bbbcc Bbbbb
+BBBBB
+ff-ff Ccccc CCCCC
+cccdd Ddddd
+DDDDD
+aaabb Aaaaa
+AAAAA
+bbbcc Bbbbb
+BBBBB
+ff-cc Ccccc CCCCC
+cccdd Ddddd
+DDDDD
+aaabb Aaaaa
+AAAAA
+bbbcc Bbbbb
+BBBBB
+ff-ff Ccccc CCCCC
+cccdd Ddddd
+DDDDD
+/home/poonam/IPL/RCB $ ls -l
+total 0
+-rw-r--r-- 1 poonam poonam 216 Mar 20 21:29 testResult
+-rw-r--r-- 1 poonam poonam  72 Mar 20 21:23 testX
+-rw-r--r-- 1 poonam poonam  72 Mar 20 21:25 testY
+-rw-r--r-- 1 poonam poonam  72 Mar 20 21:26 testZ
+/home/poonam/IPL/RCB $ chmod -rw testX
+/home/poonam/IPL/RCB $ ls -l testX
+----r--r-- 1 poonam poonam 72 Mar 20 21:23 testX
+/home/poonam/IPL/RCB $ cat testX
+cat: testX: Permission denied
+/home/poonam/IPL/RCB $ cat>>testX
+bash: testX: Permission denied
+/home/poonam/IPL/RCB $ chmod +rw testX
+/home/poonam/IPL/RCB $ ls -l testX
+-rw-r--r-- 1 poonam poonam 72 Mar 20 21:23 testX
+/home/poonam/IPL/RCB $ cat testX
+aaabb Aaaaa
+AAAAA
+bbbcc Bbbbb
+BBBBB
+ff-ff Ccccc CCCCC
+cccdd Ddddd
+DDDDD
+/home/poonam/IPL/RCB $ cat>>testX
+Queen
+^Z
+[4]+  Stopped                 cat >> testX
+/home/poonam/IPL/RCB $ cd ..
+/home/poonam/IPL $ ls -ld RCB
+drwxr-xr-x 1 poonam poonam 4096 Mar 20 21:29 RCB
+/home/poonam/IPL $ chmod -rwx RCB
+/home/poonam/IPL $ ls -ld RCB
+d---r-xr-x 1 poonam poonam 4096 Mar 20 21:29 RCB
+/home/poonam/IPL $ cat RCB/testX
+cat: RCB/testX: Permission denied
+/home/poonam/IPL $ touch RCB/newfile
+touch: cannot touch 'RCB/newfile': Permission denied
+/home/poonam/IPL $ ls -l RCB/testX
+ls: cannot access 'RCB/testX': Permission denied
+/home/poonam/IPL $ chmod u=+rwx RCB
+/home/poonam/IPL $ ls -ld RCB
+drwxr-xr-x 1 poonam poonam 4096 Mar 20 21:29 RCB
+/home/poonam/IPL $ cat RCB/testX
+aaabb Aaaaa
+AAAAA
+bbbcc Bbbbb
+BBBBB
+ff-ff Ccccc CCCCC
+cccdd Ddddd
+DDDDD
+Queen
+/home/poonam/IPL $ touch RCB/newfile
+/home/poonam/IPL $ ls -l RCB/testX
+-rw-r--r-- 1 poonam poonam 78 Mar 20 21:35 RCB/testX
+/home/poonam/IPL $ cd "Rajsthan Royals"
+/home/poonam/IPL/Rajsthan Royals $ grep bb testX
+aaabb Aaaaa
+bbbcc Bbbbb
+/home/poonam/IPL/Rajsthan Royals $ grep -v bb testX
+AAAAA
+BBBBB
+ff-ff Ccccc CCCCC
+cccdd Ddddd
+DDDDD
+/home/poonam/IPL/Rajsthan Royals $ grep -n bb testX
+1:aaabb Aaaaa
+3:bbbcc Bbbbb
+/home/poonam/IPL/Rajsthan Royals $ grep -l bb *
+testX
+testY
+testZ
+/home/poonam/IPL/Rajsthan Royals $ grep -i bb *
+testX:aaabb Aaaaa
+testX:bbbcc Bbbbb
+testX:BBBBB
+testY:aaabb Aaaaa
+testY:bbbcc Bbbbb
+testY:BBBBB
+testZ:aaabb Aaaaa
+testZ:bbbcc Bbbbb
+testZ:BBBBB
+/home/poonam/IPL/Rajsthan Royals $ grep -i BB *
+testX:aaabb Aaaaa
+testX:bbbcc Bbbbb
+testX:BBBBB
+testY:aaabb Aaaaa
+testY:bbbcc Bbbbb
+testY:BBBBB
+testZ:aaabb Aaaaa
+testZ:bbbcc Bbbbb
+testZ:BBBBB
+/home/poonam/IPL/Rajsthan Royals $ grep -c bb *
+testX:2
+testY:2
+testZ:2
+/home/poonam/IPL/Rajsthan Royals $ grep '^A' *
+testX:AAAAA
+testY:AAAAA
+testZ:AAAAA
+/home/poonam/IPL/Rajsthan Royals $ grep -n '^' testX
+1:aaabb Aaaaa
+2:AAAAA
+3:bbbcc Bbbbb
+4:BBBBB
+5:ff-ff Ccccc CCCCC
+6:cccdd Ddddd
+7:DDDDD
+/home/poonam/IPL/Rajsthan Royals $ alias lsl='ls -l'
+/home/poonam/IPL/Rajsthan Royals $ alias lsR='ls -R'
+/home/poonam/IPL/Rajsthan Royals $ alias lsl lsR
+alias lsl='ls -l'
+alias lsR='ls -R'
+/home/poonam/IPL/Rajsthan Royals $ unalias lsl lsR
+/home/poonam/IPL/Rajsthan Royals $ cd ..
+/home/poonam/IPL $ cd ..
+/home/poonam $ lsl
+bash: lsl: command not found
+/home/poonam $ lsR
+bash: lsR: command not found
+/home/poonam $ nano .bashrc
+/home/poonam $ . .bashrc
+poonam@DESKTOP-9S1TGQJ:~$ lsl
+total 20
+-rw-r--r-- 1 poonam poonam 20480 Mar 20 21:51 20049412cw2p1
+drwxr-xr-x 1 poonam poonam  4096 Mar 20 21:10 IPL
+poonam@DESKTOP-9S1TGQJ:~$ lsR
+.:
+20049412cw2p1  IPL
+
+./IPL:
+ KKR  'Mumbai Indians'   Punjab   RCB  'Rajsthan Royals'
+
+./IPL/KKR:
+
+'./IPL/Mumbai Indians':
+
+./IPL/Punjab:
+
+./IPL/RCB:
+newfile  testResult  testX  testY  testZ
+
+'./IPL/Rajsthan Royals':
+testX  testY  testZ
+poonam@DESKTOP-9S1TGQJ:~$ export PS1="\`pwd\` $ "
+/home/poonam $ nano .bashrc
+/home/poonam $ . .bashrc
+poonam@DESKTOP-9S1TGQJ:~$ export PS1="\`pwd\` $ "
+/home/poonam $ nano .bashrc
+/home/poonam $ . .bashrc
+poonam@DESKTOP-9S1TGQJ:~$ export PS1="\`pwd\` $ "
+/home/poonam $ nano .bashrc
+/home/poonam $ . .bashrc
+poonam@DESKTOP-9S1TGQJ:~$ noAllf
+9
+poonam@DESKTOP-9S1TGQJ:~$ noAsubsir
+61
+poonam@DESKTOP-9S1TGQJ:~$ noAcs
+0
+poonam@DESKTOP-9S1TGQJ:~$ fc -l
+332      lsR
+333      export PS1="\`pwd\` $ "
+334      alias noAllf='ls -a | wc -l'
+335      nano .bashrc
+336      . .bashrc
+337      export PS1="\`pwd\` $ "
+338      alias noAsubsir='ls -aR | wc -l'
+339      nano .bashrc
+340      . .bashrc
+341      export PS1="\`pwd\` $ "
+342      alias noAcs='ls -a | grep ^[gtw] | wc -l'
+343      nano .bashrc
+344      . .bashrc
+345      noAllf
+346      noAsubsir
+347      noAcs
+poonam@DESKTOP-9S1TGQJ:~$ fc -e- -6
+nano .bashrc
+poonam@DESKTOP-9S1TGQJ:~$ fc -e- i
+bash: fc: no command found
+poonam@DESKTOP-9S1TGQJ:~$ export PS1="\`pwd\` $ "
+/home/poonam $ exit
+exit
+There are stopped jobs.

@@ -1,0 +1,200 @@
+#!/bin/bash
+firstname=$1
+id=$2
+
+entry(){
+if [[ "$#" -eq 0 ]]
+then
+        echo "Required data is not entered."
+
+elif [[ "$#" == 2 ]]
+then
+        if [[ $firstname =~ [a-z|A-Z]+$ ]]
+        then
+                echo "Name is accepted."
+                if [[ $id =~ [0-9]+$ || $id =~ [0.9].[0.9]+$ ]]
+                then
+                        echo "ID is accepted."
+                        input
+                else
+                        echo "ID shoulc contain numbers only."
+                        exit
+                fi
+        else
+                echo "Name should contain alphabets only"
+                exit
+        fi
+else
+        echo "Please enter 2 parameters."
+        exit
+fi
+
+}
+
+input(){
+        attempt=0
+        secretkey=poon
+                echo  ""
+                echo "                             WELCOME!!!                       "
+        while [ "$attempt" -lt 3 ]
+        do
+                echo -e "Please enter the secret key:-\c"
+                read enteredkey
+                echo  ""
+                ((attempt++))
+                if [ "$enteredkey" = "$secretkey" ]
+                then
+                        echo  ""
+                        echo  "*********************************************************"
+                        echo  "** Hello $firstname, You are successfully logged in.       **"
+                        echo  "** The details are presented below:                    **"
+                        echo  "** ID: $id                                          **"
+                        echo  "** Name: $firstname                                        **"
+                        echo  "** Date: `date +%Y-%m-%d`                                    **"
+                        echo  "** Executed time: `date +%H:%M:%S`                             **"
+                        echo  "*********************************************************"
+                        guessteam
+                        break
+                fi
+                if [ "$attempt" = "3" ]
+                then
+                        echo  "You entered the incorrect key. The program will exit now."
+                        echo  "Thank you!"
+                        echo  ""
+                        exit
+                fi
+        done
+}
+
+guessteam(){
+        echo ""
+        echo -e "----------------------------------------------------------"
+        echo -e "|          Music band           |      Codes             |"
+        echo -e "----------------------------------------------------------"
+        echo -e "|          Beatles              |      BEA               |"
+        echo -e "|          AC/DC                |      AD                |"
+        echo -e "|          Queen                |      QUE               |"
+        echo -e "|          Blondie              |      BLO               |"
+        echo -e "|          Nirvana              |      NIR               |"
+        echo -e "----------------------------------------------------------"
+        userguess=false
+        until [ $userguess = "true" ]
+        do
+                echo "Which one is your best music band?"
+                read userinput
+                if [ $userinput != BEA ] && [ $userinput != AD ] && [ $userinput != QUE ] && [ $userinput != BLO ] && [ $userinput != NIR ]
+                then
+                        echo "Please enter the correct music band code."
+                else
+                        if [ "$userinput" == "BEA" ]
+                        then
+                                echo "Congratulations! That's the best one music band."
+                                echo "Beatles is the best music band ever in the music band."
+                                member
+                        else
+                                echo "Wrong selection."
+                        fi
+                exit
+                fi
+        done
+}
+
+member(){
+        echo ""
+        echo -e "-------------------------------------------------------"
+        echo -e "|         Members           |          Codes          |"
+        echo -e "-------------------------------------------------------"
+        echo -e "|         John Lennon       |          JL             |"
+        echo -e "|         Angus Young       |          AY             |"
+        echo -e "|         Freddie Mercury   |          FM             |"
+        echo -e "|         Debbie Harry      |          DH             |"
+        echo -e "|         Kurt Cobain       |          KC             |"
+        echo -e "-------------------------------------------------------"
+        echo "Enter the code of three members:"
+        read code1 code2 code3 code4
+        code=($code1 $code2 $code3)
+        if [ ${#code[@]} -eq 3 ]
+        then
+                if [[ "$code1" = "$code2" || "$code1" = "$code3" || "$code2" = "$code3" ]]
+                then
+                        echo "You entered the same code more than once."
+                        echo ""
+                        member
+                else
+                        echo ""
+                        PS3="Choose any three member from the above."
+                        select member in $code1 $code2 $code3
+                        do
+                                case $member in
+                                        $code1)
+                                        memberinfo "$code1"
+                                        break;;
+
+                                        $code2)
+                                        memberinfo "$code2"
+                                        break;;
+
+                                        $code3)
+                                        memberinfo "$code3"
+                                        break;;
+                                esac
+                        done
+                fi
+
+        else
+                echo -e "Please enter only three correct member codes."
+                member
+        fi
+}
+
+memberinfo(){
+        name=$1
+        if [[ $name == "JL" || $name == "AY" || $name == "FM" ]]
+        then
+                if [[ $name = "JL" && -f fileJL && -r fileJL ]]
+                then
+                        echo "You chose JL (John Lennon)."
+                        cat fileJL
+                        echo ""
+                        repeat
+                elif [[ $name == "AY" && -f fileAY && -r fileAY ]]
+                then
+                        echo "You chose AY (Angus Young)."
+                        cat fileAY
+                        echo ""
+                        repeat
+                elif [[ $name == "FM" && -f fileFM && -r fileFM ]]
+                then
+                        echo "You chose FM (Freddie Mercury)."
+                        cat fileFM
+                        echo ""
+                        repeat
+                else
+                        echo "The selection is not available."
+                fi
+        else
+                echo ""
+                echo "Wrong selection."
+        fi
+}
+
+repeat(){
+        echo -e "Do you want to start again?('Y' for 'yes' 'N' for 'no' )"
+        read input
+        if [ $input == Y ]
+        then
+                input
+        elif [ $input == N ]
+        then
+                echo -e "Thank you!"
+                exit
+        else
+                echo -e "Please enter valid input (Y/N)"
+        fi
+}
+entry $1 $2
+input
+guessteam
+member
+memberinfo
+repeat
